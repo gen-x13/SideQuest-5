@@ -28,12 +28,15 @@ st.set_page_config(page_title="Spectrum App Test", page_icon="📋",
                    initial_sidebar_state="collapsed")
 
 # CSS Background
-css_path = os.path.join('css', 'css.css')
-print(css_path)
-with open(css_path) as f:
-    css = f.read()
-st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+css_path = os.path.join(current_dir, "css", "css.css")
 
+st.write("Chemin CSS :", css_path)  # Debug
+
+with open(css_path, "r", encoding="utf-8") as f:
+    css = f.read()
+
+st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 # Disable sidebar
 st.markdown("""
             <style>
@@ -68,5 +71,6 @@ if browser_language.startswith('fr'):
 else:
     
     st.switch_page("pages/0_en_intro.py")
+
 
 
