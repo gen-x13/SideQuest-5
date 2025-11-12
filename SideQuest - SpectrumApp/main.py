@@ -59,7 +59,7 @@ st.markdown(
 )
     
 # Detection of browser language
-browser_language = "en" #detect_browser_language() #"en"
+browser_language = detect_browser_language() #"en"
 
 
 if browser_language.startswith('fr'):
@@ -68,4 +68,5 @@ if browser_language.startswith('fr'):
 else:
     
     st.switch_page("pages/0_en_intro.py")
+
 
